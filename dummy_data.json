@@ -1,0 +1,76 @@
+[
+ {
+  "model": "f-15",
+  "id": 12345678,
+  "systems-list": [
+   "engine",
+   "air-frame",
+   "avionics",
+   "flight-controls",
+   "systems"
+  ],
+  "systems": {
+   "engine": { "available": 10, "gross": 100, "net-req": 70 },
+   "air-frame": { "available": 30, "gross": 100, "net-req": 70 },
+   "avionics": { "available": 30, "gross": 100, "net-req": 70 },
+   "flight-controls": { "available": 30, "gross": 100, "net-req": 70 },
+   "kaki": { "available": 30, "gross": 100, "net-req": 70 },
+   "maki": { "available": 30, "gross": 100, "net-req": 70 },
+   "sushi": { "available": 30, "gross": 100, "net-req": 70 },
+   "peripheral-systems": {
+    "landing-gear": { "available": 0, "gross": 0, "net-req": 0 },
+    "fuel-system": { "available": 0, "gross": 0, "net-req": 0 },
+    "hydraulic-system": { "available": 0, "gross": 0, "net-req": 0 },
+    "electrical-system": { "available": 0, "gross": 0, "net-req": 0 },
+    "luki": { "available": 30, "gross": 100, "net-req": 70 },
+    "puki": { "available": 30, "gross": 100, "net-req": 70 }
+   }
+  }
+ },
+ {
+  "model": "f-14",
+  "id": 34567890,
+  "systems-list": [
+   "engine",
+   "air-frame",
+   "avionics",
+   "flight-controls",
+   "systems"
+  ],
+  "systems": {
+   "engine": { "available": 30, "gross": 100, "net-req": 70 },
+   "air-frame": { "available": 30, "gross": 100, "net-req": 70 },
+   "avionics": { "available": 30, "gross": 100, "net-req": 70 },
+   "flight-controls": { "available": 30, "gross": 100, "net-req": 70 },
+   "peripheral-systems": {
+    "landing-gear": { "available": 0, "gross": 0, "net-req": 0 },
+    "fuel-system": { "available": 0, "gross": 0, "net-req": 0 },
+    "hydraulic-system": { "available": 0, "gross": 0, "net-req": 0 },
+    "electrical-system": { "available": 0, "gross": 0, "net-req": 0 }
+   }
+  }
+ },
+ {
+  "model": "f-16",
+  "id": 23456789,
+  "systems-list": [
+   "engine",
+   "air-frame",
+   "avionics",
+   "flight-controls",
+   "systems"
+  ],
+  "systems": {
+   "engine": { "available": 30, "gross": 100, "net-req": 70 },
+   "air-frame": { "available": 30, "gross": 100, "net-req": 70 },
+   "avionics": { "available": 30, "gross": 100, "net-req": 70 },
+   "flight-controls": { "available": 30, "gross": 100, "net-req": 70 },
+   "peripheral-systems": {
+    "landing-gear": { "available": 0, "gross": 0, "net-req": 0 },
+    "fuel-system": { "available": 0, "gross": 0, "net-req": 0 },
+    "hydraulic-system": { "available": 0, "gross": 0, "net-req": 0 },
+    "electrical-system": { "available": 0, "gross": 0, "net-req": 0 }
+   }
+  }
+ }
+]

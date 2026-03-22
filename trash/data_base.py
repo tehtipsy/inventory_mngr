@@ -1,0 +1,39 @@
+# Module containing the base data structure for airplane inventory.
+# Defines the initial data dictionary with models and their systems.
+
+data = {
+    'f-15': {
+        'id': 12345678,
+        'systems-list': ['engine', 'air-frame', 'avionics', 'flight-controls', 'systems'],
+        'systems': {
+            'engine': {'available': 30, 'gross': 100, 'net-req': 70},
+            'air-frame': {'available': 30, 'gross': 100, 'net-req': 70},
+            'avionics': {'available': 30, 'gross': 100, 'net-req': 70},
+            'flight-controls': {'available': 30, 'gross': 100, 'net-req': 70},
+            'peripheral-systems': {
+                'landing-gear': {'available': 0, 'gross': 0, 'net-req': 0},
+                'fuel-system': {'available': 0, 'gross': 0, 'net-req': 0},
+                'hydraulic-system': {'available': 0, 'gross': 0, 'net-req': 0},
+                'electrical-system': {'available': 0, 'gross': 0, 'net-req': 0}
+            },
+        }
+    },
+    'f-16': {
+        'id': 23456789,
+        'systems-list': ['engine', 'air-frame', 'avionics', 'flight-controls', 'systems'],
+        'systems': {
+            'engine': {'available': 30, 'gross': 100, 'net-req': 70},
+            'air-frame': {'available': 30, 'gross': 100, 'net-req': 70},
+            'avionics': {'available': 30, 'gross': 100, 'net-req': 70},
+            'flight-controls': {'available': 30, 'gross': 100, 'net-req': 70},
+            'peripheral-systems': {
+                'landing-gear': {'available': 0, 'gross': 0, 'net-req': 0},
+                'fuel-system': {'available': 0, 'gross': 0, 'net-req': 0},
+                'hydraulic-system': {'available': 0, 'gross': 0, 'net-req': 0},
+                'electrical-system': {'available': 0, 'gross': 0, 'net-req': 0}
+            },
+        }
+    }
+}
+
+
