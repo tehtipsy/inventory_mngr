@@ -31,7 +31,6 @@ def display_menu():
     display_manu_on = True
     while display_manu_on:
 
-
         show_display_menu()
 
         menu = get_display_menu_options()
@@ -48,15 +47,27 @@ def display_menu():
                 by_system_user_choice = intake_user_choice(menu)
 
                 if by_system_user_choice == 1: #  DISPLAY SYSTEM FOR ALL MODELS
-                    # show_system_options()
-                    # menu = get_systems_options()
-                    # system_user_choice = intake_user_choice(menu)
                     system_user_choice = intake_system()
+                    if system_user_choice == 99:
+                        print("\nAborted.")
+                        display_menu()
+                        break
+
                     display_system_inventory_all(system_user_choice-1)
 
                 if by_system_user_choice == 2: # DISPLAY SYSTEM BY AIRPLANE
                     model = intake_airplane_model()
+                    if model == 99:
+                        print("\nAborted.")
+                        display_menu()
+                        break
+
                     system = intake_system()
+                    if system == 99:
+                        print("\nAborted.")
+                        display_menu()
+                        break
+
                     display_system_inventory_by_model(model-1, system-1)
 
                 if by_system_user_choice == 3:
@@ -73,10 +84,18 @@ def display_menu():
                 menu = get_display_by_model_menu_options()
                 by_model_user_choice = intake_user_choice(menu)
 
+                if by_model_user_choice == 99:
+                    print("\nAborted.")
+                    display_menu()
+                    break
                 if by_model_user_choice == 1:
                     # Display inventory by airplane
 
                     model_choice = intake_airplane_model()
+                    if model_choice == 99:
+                        print("\nAborted.")
+                        display_menu()
+                        break
                     display_all_systems_inventory_by_model(model_choice)
 
                 if by_model_user_choice == 2:
@@ -92,3 +111,4 @@ def display_menu():
             display_manu_on = False
             msg = "Returning to main menu"
             print(f"\n{'-' * 30} {msg} {'-' * 30}")
+            break

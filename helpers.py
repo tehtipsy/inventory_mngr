@@ -196,13 +196,15 @@ def intake_user_choice(menu):
         try:
             choice = int(input("\nEnter choice then press enter: "))
 
-            if choice < 1 or choice > len(menu):
-                raise Exception(f"\nInvalid choice\nPlease enter a number between 1 and {len(menu)}")
+            if choice == 99:
+                return 99
 
+            if choice < 1 or choice > len(menu):
+                raise Exception(f"\nInvalid choice.\nPlease enter a number between 1 and {len(menu)}.")
             return choice
         
         except ValueError:
-            error_msg = "Invalid choice\nPlease enter a number not a letter"
+            error_msg = "\nInvalid choice.\nPlease enter a number."
             print(error_msg)
         except Exception as e:
             print(e)
@@ -218,6 +220,7 @@ def intake_airplane_model():
     show_model_options()
     menu = get_models_options()
     choice = intake_user_choice(menu)
+
     return choice
 
 
@@ -231,6 +234,7 @@ def intake_system():
     show_system_options()
     menu = get_systems_options()
     choice = intake_user_choice(menu)
+
     return choice
         
 
@@ -244,4 +248,5 @@ def intake_property():
     show_inventory_options()
     menu = get_inventory_options()
     choice = intake_user_choice(menu)
+
     return choice

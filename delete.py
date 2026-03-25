@@ -34,15 +34,19 @@ def render_delete_menu():
     Returns:
         str: The formatted menu string for deleting airplane models or systems.
     """
-    menu_title = "DELETE MENU"
-    length = len(menu_title)
+    title = "DELETE MENU"
+
     message = f"""
-\n{'=' * length}\n{menu_title}\n{'=' * length}
+{'=' * len(title)}
+{title}
+{'=' * len(title)}
+
 """
     i = 1
     for option in get_delete_menu_options():
         message += f"\n{i}. {option}"
         i += 1
+    message += "\n\n99 to go back to menu at any stage"
 
     return message
 
@@ -143,13 +147,27 @@ def delete_menu():
         if delete_menu_user_choice == 1: # Delete model
             model = intake_airplane_model()
 
+            if model == 99:
+                print("Aborted")
+                delete_menu()
+                break
+
             delete_model(model)
         
         if delete_menu_user_choice == 2: # Delete system
             model = intake_airplane_model()
 
-            show_system_options()
+            if model == 99:
+                print("Aborted")
+                delete_menu()
+                break
+
             system = intake_system()
+
+            if system == 99:
+                print("Aborted")
+                delete_menu()
+                break
 
             delete_system(model, system)
 

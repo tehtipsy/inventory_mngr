@@ -66,14 +66,26 @@ def update_manu():
     show_model_options()
     models_menu = get_models_options()
     user_model_choice = intake_user_choice(models_menu)
+    
+    if user_model_choice == 99:
+        print("Aborted")
+        update_manu()
 
     show_system_options()
     systems_menu = get_systems_options()
     user_system_choice = intake_user_choice(systems_menu)
 
+    if user_system_choice == 99:
+        print("Aborted")
+        update_manu()
+
     show_inventory_options()
     inventory_menu = get_inventory_options()
     user_inventory_property_choice = intake_user_choice(inventory_menu)
+
+    if user_inventory_property_choice == 99:
+        print("Aborted")
+        update_manu()
 
     update_inventory(user_model_choice-1, user_system_choice-1, user_inventory_property_choice-1)
 

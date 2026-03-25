@@ -30,15 +30,19 @@ def render_add_menu():
     Returns:
         str: Formatted ASCII menu with 3 add options (new model, new system, back).
     """
-    menu_title = "ADD MENU"
-    length = len(menu_title)
+    title = "ADD MENU"
+
     message = f"""
-\n{'=' * length}\n{menu_title}\n{'=' * length}
+{'=' * len(title)}
+{title}
+{'=' * len(title)}
+
 """
     i = 1
     for option in get_add_menu_options():
         message += f"\n{i}. {option}"
         i += 1
+    message += "\n\n99 to go back to menu at any stage"
 
     return message
 
@@ -62,6 +66,8 @@ def add_new_airplane_model(new_model):
     data = get_dummy_data()
     new_data = {'model': new_model}
     data.append(new_data)
+
+    if new_model == 99: return 99
 
     continue_choice = input("Enter Y to initialize the new model with default data or press enter to abort: ").lower()
     if continue_choice == 'y':
@@ -96,6 +102,7 @@ def add_new_inventory(model, new_system):
     """
     data = get_dummy_data()
     model_options = get_models_options()
+    model -= 1
 
     for i in range(len(data)):
         if data[i]['model'] == model:
@@ -122,6 +129,12 @@ def add_menu():
     
         if add_menu_user_choice == 1: # Add new model -> (Option to intiate with data or leave model empty)
             new_model = input("Enter new airplane model to add: ")
+            print(new_model)
+            if new_model == str(99):
+                print("Aborted")
+                add_menu()
+                break
+
             add_new_airplane_model(new_model)
 
             continue_choice = input("Enter Y to update another inventory or press enter to go back to main menu: ").lower()
@@ -134,11 +147,21 @@ def add_menu():
             model_options = get_models_options()
             model = intake_user_choice(model_options)
 
+            if model == 99:
+                print("Aborted")
+                add_menu()
+                break
+
             new_system = input("Enter new system to add: ")
+
+            if new_system == str(99):
+                print("Aborted")
+                add_menu()
+                break
 
             add_new_inventory(model, new_system)
 
-            continue_choice = input("Enter Y to add another model or press enter to go back to main menu: ").lower()
+            continue_choice = input("Enter Y to add another inventory or press enter to go back to main menu: ").lower()
             if continue_choice == 'y':
                 add_menu()
 
