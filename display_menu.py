@@ -88,8 +88,8 @@ def display_menu():
                     print("\nAborted.")
                     display_menu()
                     break
-                if by_model_user_choice == 1:
-                    # Display inventory by airplane
+                if by_model_user_choice == 1: # DISPLAY BY MODEL AND BY SYSTEM
+                    
 
                     model_choice = intake_airplane_model()
                     if model_choice == 99:
@@ -98,8 +98,7 @@ def display_menu():
                         break
                     display_all_systems_inventory_by_model(model_choice)
 
-                if by_model_user_choice == 2:
-                    # Get inventory status for all airplanes
+                if by_model_user_choice == 2: # DISPLAY BY SYSTEM FOR ALL MODELS
                     display_all_systems_inventory_for_all_airplanes()
 
                 if by_model_user_choice == 3:
@@ -107,7 +106,7 @@ def display_menu():
                     msg = "Returning to display menu"
                     print(f"\n{'-' * 30} {msg} {'-' * 30}")
 
-        if display_menu_user_choice == 3: # DISPLAY EXIT
+        if display_menu_user_choice == 3: # EXIT MENU
             display_manu_on = False
             msg = "Returning to main menu"
             print(f"\n{'-' * 30} {msg} {'-' * 30}")

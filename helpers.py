@@ -221,6 +221,8 @@ def intake_airplane_model():
     menu = get_models_options()
     choice = intake_user_choice(menu)
 
+    if choice == 99: return 99
+
     return choice
 
 
@@ -235,6 +237,8 @@ def intake_system():
     menu = get_systems_options()
     choice = intake_user_choice(menu)
 
+    if choice == 99: return 99
+
     return choice
         
 
@@ -248,5 +252,7 @@ def intake_property():
     show_inventory_options()
     menu = get_inventory_options()
     choice = intake_user_choice(menu)
+
+    if choice == 99: return 99
 
     return choice
