@@ -46,7 +46,7 @@ def get_system_inventory_all(system):
                     gross = status 
                     cur_inventory[property] = status
                 if property == 'net-req':
-                    net_req = gross - available
+                    net_req = int(gross) - int(available)
                     cur_inventory[property] = net_req
         inventory.append(cur_inventory)
     return inventory
@@ -68,9 +68,13 @@ def display_system_inventory_all(system):
         title = f"Inventory status for {model['model']} {system_options[system]}"
         print(f"\n\n{'=' * len(title)}\n{title}\n{'=' * len(title)}")
         message += f"""
-AVAILABLE: {model['available']}
-GROSS: {model['gross']}
-NET-REQ: {model['net-req']}"""     
+        AVAILABLE: {model['available']}
+        GROSS: {model['gross']}
+        NET-REQ: {model['net-req']}
+        """
+        alert_condition = model['gross'] / 2 < model['net-req']
+        if alert_condition:
+            message += f"\n\n{'!' * 45}\nALERT: Inventory is insufficient!\n{'!' * 45}"
         print(message)
     print('\n'+'-' * 45)
 
