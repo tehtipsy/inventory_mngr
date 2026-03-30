@@ -23,15 +23,34 @@ def get_system_inventory_all(system):
         cur_inventory['model'] = model['model']
         if system in model['systems']:
             cur_inventory['system'] = system
+            available = 0
+            gross = 0
+            net_req = 0
             for property, status in model['systems'][system].items():
-                cur_inventory[property] = status
+                if property == 'available':
+                    available = status
+                    cur_inventory[property] = status
+                if property == 'gross':
+                    gross = status 
+                    cur_inventory[property] = status
+                if property == 'net-req':
+                    net_req = gross - available
+                    cur_inventory[property] = net_req
         if system in model['systems']['peripheral-systems']:
             cur_inventory['system'] = system
             for property, status in model['systems']['peripheral-systems'][system].items():
-                cur_inventory[property] = status
-                
+                if property == 'available':
+                    available = status
+                    cur_inventory[property] = status
+                if property == 'gross':
+                    gross = status 
+                    cur_inventory[property] = status
+                if property == 'net-req':
+                    net_req = gross - available
+                    cur_inventory[property] = net_req
         inventory.append(cur_inventory)
     return inventory
+# print(get_system_inventory_all('fuel-system'))
 
 
 def display_system_inventory_all(system):
@@ -46,7 +65,7 @@ def display_system_inventory_all(system):
     inventory = get_system_inventory_all(system_options[system])
     for model in inventory:
         message = ""
-        title = f"Inventory status for {model['model']} {system_options[system]}" # {model['system']}"
+        title = f"Inventory status for {model['model']} {system_options[system]}"
         print(f"\n\n{'=' * len(title)}\n{title}\n{'=' * len(title)}")
         message += f"""
 AVAILABLE: {model['available']}

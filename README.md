@@ -3,9 +3,29 @@ This README.md file was enhanced using AI
 
 # Contribution
 
-- Inventory alerts/warnings for low stock
-- Export inventory to CSV/Excel formats
-- Improve display feature to include difference in percentage
+### - Improve display feature to include difference in percentage.
+  - 
+
+### - Inventory alerts/warnings for low stock.
+  - File: display_logic
+  - Function: get_system_inventory_all (I recommend taking a look at data_base.json to understand the data structure and properties stored in it)
+  - Function description (also check docstring):
+      - This function takes in a desired system, chosen by the user passed in as a parameter.
+      - Inside the function there is a cur_inventory dictionary that is updated during loops executions (it takes in the requested data (a system for all models)).
+      - You will be able to use an already cought model, system and inventory-property.
+      - The inventory dictionary is {'available: XX, gross: XX, net-req: XX'}. Each key stored as property and each value stored as status in the current loop.
+  - Implementation:
+      - In display_system_inventory_all function you can implement the alert feature
+        - Inside this function there is a loop that grabs each model's inventory and stores it in the loop's model variable
+        - Use the net-req property and calculate to get percentage from the gross requierment. 
+        - If the difference is more than 50% (you can decide the value here) add an alert to the message fstring variable.
+
+### - Export data-base to CSV/Excel formats
+  - File: You can add the new function to helpers.py or create a new file for it.
+  Implementation:
+    - You can use get_data_base() from helpers.py to get the whole data-base (the dummy-data is saved to the data-base only by the user (option 5 in main menu)). 
+    - You can also use get_dummy_data() from helpers.py to get the whole dummy-data if you prefer it for the export.
+
 
 # Inventory Manager
 
